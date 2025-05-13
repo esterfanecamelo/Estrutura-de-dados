@@ -17,6 +17,7 @@ void criaPilha(Pilha *pilha, int tamanhoMax);
 void empilha(Pilha *pilha, int elemento);
 void desempilha(Pilha *pilha, int* elemento);
 int tamanhoDaPilha(Pilha* pilha);
-void imprime(Pilha* pilha);
+void imprimeTopo(Pilha* pilha);
+void imprimePilha(Pilha* pilha);
 
 #endif

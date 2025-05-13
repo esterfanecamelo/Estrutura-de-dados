@@ -17,7 +17,14 @@ void empilha(Pilha *pilha, int elemento){
 }
 
 void desempilha(Pilha *pilha, int* elemento){
-
+    if(pilha->topo == NULL){
+        printf("pilha vazia!");
+    }
+    No *remover = pilha->topo;
+    *elemento = remover->elemento;
+    pilha->topo = remover->prox;
+    free(remover);
+    pilha->tamanho--;
 }
 
 int tamanhoDaPilha(Pilha* pilha){
@@ -25,5 +32,18 @@ int tamanhoDaPilha(Pilha* pilha){
 }
 
 void imprimeTopo(Pilha* pilha){
-    printf("%d", pilha->topo->elemento);
+    printf("TOPO: %d\n", pilha->topo->elemento);
 }
+
+void imprimePilha(Pilha* pilha){
+    No* atual = pilha->topo;
+    
+    printf("Pilha completa:\n");
+    while (atual != NULL)
+    {
+        printf("%d ", atual->elemento);
+        atual = atual->prox;
+    }
+    printf("\n");
+}
+
