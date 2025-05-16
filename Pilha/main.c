@@ -1,5 +1,23 @@
 #include "pilha.h"
 #include <stdlib.h>
+#include <stdio.h>
+
+
+void imprimePorOrdemDeInsercao(Pilha *pilha){
+    printf("Imprimindo por ordem de insercao:\n");
+
+    int elemento;
+    Pilha *pilhaInversa = (Pilha*)malloc(sizeof(Pilha));
+
+    criaPilha(pilhaInversa, 10);
+
+    while(pilha->topo != NULL){
+        desempilha(pilha, &elemento);
+        empilha(pilhaInversa, elemento);
+    }
+
+    imprimePilha(pilhaInversa);
+}
 
 void main(){
     Pilha *pilha = (Pilha*)malloc(sizeof(Pilha));
@@ -19,4 +37,6 @@ void main(){
 
     imprimePilha(pilha);
     imprimeTopo(pilha);
+
+    imprimePorOrdemDeInsercao(pilha);
 }
