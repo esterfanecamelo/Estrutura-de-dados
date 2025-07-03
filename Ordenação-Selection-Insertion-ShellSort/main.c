@@ -92,7 +92,7 @@ void imprimirLinha(const char *nomeMetodo, void (*sortFunc)(int *, int), int *ba
         int vetor[MAX];
         copiarVetor(vetor, base, tamanhos[i]);
         sortFunc(vetor, tamanhos[i]);
-        printf("|%5d ", comparacoes); // ou movimentacoes
+        printf("|%5d ", comparacoes); 
     }
     printf("|\n");
 }
@@ -134,16 +134,19 @@ void parte2() {
     printf("+---------------------------------------------------------------+\n");
 
     int vetor1[MAX], vetor2[MAX];
+    int n;
 
-    for (int n = 1; n <= MAX; n++) {
+    for (n = 1; n <= MAX; n++) {
         gerarAleatorio(vetor1, n);
         copiarVetor(vetor2, vetor1, n);
 
         insercao(vetor1, n);
         int compInsercao = comparacoes;
+        int movInsercao = movimentacoes;
 
         shellsort(vetor2, n);
         int compShell = comparacoes;
+        int movShell = movimentacoes;
 
         printf("| %7d | %14d | %15d |\n", n, compInsercao, compShell);
 
@@ -151,6 +154,29 @@ void parte2() {
     }
 
     printf("+---------------------------------------------------------------+\n");
+
+
+    printf("\nMovimentacoes Shellsort vs Insercao:\n");
+    printf("+------------------------------------------------------------------+\n");
+    printf("| Tamanho | Mov. Insercao   | Mov. Shellsort |\n");
+    printf("+------------------------------------------------------------------+\n");
+
+    for (int i = 1; i <= n; i++) {
+        gerarAleatorio(vetor1, i);
+        copiarVetor(vetor2, vetor1, i);
+
+        insercao(vetor1, i);
+        int movInsercao = movimentacoes;
+
+        shellsort(vetor2, i);
+        int movShell = movimentacoes;
+
+        printf("| %7d | %14d | %15d |\n", i, movInsercao, movShell);
+
+        if (movShell < movInsercao) break;
+    }
+
+    printf("+------------------------------------------------------------------+\n");
 }
 
 int main() {
