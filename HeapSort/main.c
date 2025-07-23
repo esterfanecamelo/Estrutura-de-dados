@@ -34,7 +34,7 @@ void ImprimeHeapComoArvore(TipoItem *A, int n)
     int index = 1;
     int elementosNivel = 1;
 
-    printf("\nRepresentacao do Heap como árvore (formato hierárquico):\n\n");
+    printf("\nRepresentacao do Heap como arvore (formato hierarquico):\n\n");
 
     while (index <= n)
     {
@@ -93,7 +93,7 @@ int main()
     // Resultado final
     printf("Heapsort com array de 10000 itens ordenados fez %ld comparacoes de chave\n", comparacoesCresc);
     printf("Heapsort com array de 10000 itens ordenados inversamente fez %ld comparacoes de chave\n", comparacoesDesc);
-    printf("Heapsort com array de 10000 itens aleatórios fez %ld comparacoes de chave\n", comparacoesAlea);
+    printf("Heapsort com array de 10000 itens aleatorios fez %ld comparacoes de chave\n", comparacoesAlea);
 
     return 0;
 }

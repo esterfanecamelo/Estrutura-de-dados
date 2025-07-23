@@ -1,7 +1,7 @@
 #ifndef HEAP_H
 #define HEAP_H
 
-#define MAXTAM 20
+#define MAXTAM 10000
 
 typedef int TipoIndice;
 typedef long TipoChave;
